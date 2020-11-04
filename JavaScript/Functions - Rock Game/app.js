@@ -1,6 +1,6 @@
-const startGameBtn = document.getElementById('start-game-btn');
+const startGameBtn = document.getElementById('start-game-btn')
 
-const start =  function startGame() { // using functions as expression
+/*const start =  function startGame() { // using functions as expression
   console.log('Game is about staring...');
 }
 /*function startGame() {
@@ -19,8 +19,14 @@ const start = function() {
 };
 person.greet();*/
 
-console.log(typeof start);
+/*console.log(typeof start);
 console.log(typeof start()); // gives Undefined
-console.dir(start);
+console.dir(start);*/
 
-startGameBtn.addEventListener('click', start); // AddeventListner is method on the object StartGameBtn 
+//startGameBtn.addEventListener('click', start); // AddeventListner is method on the object StartGameBtn 
+
+// Anonymous Function
+
+startGameBtn.addEventListener("click", function startGame() {
+  console.log("Game is about staring...", age);
+});
