@@ -5,10 +5,12 @@ function startGame() {
 }
 
 //startGame();
-const person = {
+/*const person = {
   greet: function greet(){
     console.log('Hello World') // A function in an object is called METHOD - A function attached to an object
   }
 };
-person.greet();
+person.greet();*/
+
+
 startGameBtn.addEventListener('click', startGame); // AddeventListner is method on the object StartGameBtn 
