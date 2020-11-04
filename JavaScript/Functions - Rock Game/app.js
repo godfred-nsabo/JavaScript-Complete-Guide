@@ -10,14 +10,14 @@ const RESULT_COMPUTER_WINS = "COMPUTER_WINS";
 
 let gameIsRunning = false;
 
-const getPlayerChoice = function() {
+const getPlayerChoice = function () {
   const selection = prompt(
     `${ROCK}, ${PAPER} or ${SCISSORS}?`,
     ""
   ).toUpperCase();
   if (selection !== ROCK && selection !== PAPER && selection !== SCISSORS) {
     alert(`Invalid choice! We chose ${DEFAULT_USER_CHOICE} for you!`);
-    return DEFAULT_USER_CHOICE;
+    return; // User chose nothing
   }
   return selection;
 };
@@ -41,7 +41,10 @@ const add2 = function(a, b){
 } 
 */
 
-const detWinner = (comChoice, playChoice) =>  // Arrow functions
+const detWinner = (
+  comChoice,
+  playChoice = DEFAULT_USER_CHOICE // Arrow functions
+) =>
   comChoice === playChoice // Tenary Operator
     ? RESULT_DRAW
     : (comChoice === ROCK && playChoice === PAPER) ||
@@ -49,7 +52,7 @@ const detWinner = (comChoice, playChoice) =>  // Arrow functions
       (comChoice === SCISSORS && playChoice === ROCK)
     ? RESULT_PLAYER_WINS
     : RESULT_COMPUTER_WINS;
- /* if (comChoice === playChoice) {
+/* if (comChoice === playChoice) {
     return RESULT_DRAW;
   } else if (
     comChoice === ROCK && playChoice === PAPER ||
@@ -68,18 +71,25 @@ startGameBtn.addEventListener("click", () => {
   }
   gameIsRunning = true;
   console.log("Game is about staring...");
-  const playerSelection = getPlayerChoice();
+  const playerSelection = getPlayerChoice(); // return Undefined
   //console.log(playerSelection);
   const computerChoice = getComputerChoice();
-  const winner = detWinner(computerChoice, playerSelection);
+  let winner;
+  if (playerSelection) {
+    const winner = detWinner(computerChoice, playerSelection);
+  } else {
+    winner = detWinner(computerChoice, playerSelection);
+  }
   //console.log(winner);
-  let imessages = `You picked ${playerSelection}, computer picked ${computerChoice}, therefore you `;
-  if (winner === RESULT_DRAW){
-    imessages = imessages + `had a ${RESULT_DRAW}`; 
-  }else if (winner === RESULT_PLAYER_WINS){
-    imessages = imessages + 'WON!!!';
-  }else {
-    imessages = imessages + 'LOST';
+  let imessages = `You picked ${
+    playerSelection ? playerSelection : DEFAULT_USER_CHOICE
+  }, computer picked ${computerChoice}, therefore you `;
+  if (winner === RESULT_DRAW) {
+    imessages = imessages + `had a ${RESULT_DRAW}`;
+  } else if (winner === RESULT_PLAYER_WINS) {
+    imessages = imessages + "WON!!!";
+  } else {
+    imessages = imessages + "LOST";
   }
   alert(imessages);
   gameIsRunning = false;
