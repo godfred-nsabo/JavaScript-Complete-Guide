@@ -3,7 +3,7 @@ const startGameBtn = document.getElementById("start-game-btn");
 const ROCK = "ROCK";
 const PAPER = "PAPER";
 const SCISSORS = "SCISSORS";
-const DEFAULT_USER_CHOICE = PAPER;
+const DEFAULT_USER_CHOICE = ROCK;
 const RESULT_DRAW = "DRAW";
 const RESULT_PLAYER_WINS = "PLAYER_WINS";
 const RESULT_COMPUTER_WINS = "COMPUTER_WINS";
@@ -72,5 +72,15 @@ startGameBtn.addEventListener("click", () => {
   //console.log(playerSelection);
   const computerChoice = getComputerChoice();
   const winner = detWinner(computerChoice, playerSelection);
-  console.log(winner);
+  //console.log(winner);
+  let imessages = `You picked ${playerSelection}, computer picked ${computerChoice}, therefore you `;
+  if (winner === RESULT_DRAW){
+    imessages = imessages + `had a ${RESULT_DRAW}`; 
+  }else if (winner === RESULT_PLAYER_WINS){
+    imessages = imessages + 'WON!!!';
+  }else {
+    imessages = imessages + 'LOST';
+  }
+  alert(imessages);
+  gameIsRunning = false;
 });
