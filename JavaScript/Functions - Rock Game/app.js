@@ -12,5 +12,8 @@ function startGame() {
 };
 person.greet();*/
 
+console.log(typeof startGame);
+console.log(typeof startGame()); // gives Undefined
+console.dir(startGame);
 
 startGameBtn.addEventListener('click', startGame); // AddeventListner is method on the object StartGameBtn 
