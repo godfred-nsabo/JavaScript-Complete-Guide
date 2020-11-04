@@ -22,7 +22,7 @@ const getPlayerChoice = function() {
   return selection;
 };
 
-const getComputerChoice = function () {
+const getComputerChoice = () => {
   const randomValue = Math.random(); // genetrate numebr btn o and 1
   if (randomValue < 0.5) {
     return ROCK;
@@ -33,8 +33,23 @@ const getComputerChoice = function () {
   }
 };
 
-const detWinner = function (comChoice, playChoice) {
-  if (comChoice === playChoice) {
+/*
+const add = (a, b) => a + b;
+//same as
+const add2 = function(a, b){
+  return a + b;
+} 
+*/
+
+const detWinner = (comChoice, playChoice) =>  // Arrow functions
+  comChoice === playChoice // Tenary Operator
+    ? RESULT_DRAW
+    : (comChoice === ROCK && playChoice === PAPER) ||
+      (comChoice === PAPER && playChoice === SCISSORS) ||
+      (comChoice === SCISSORS && playChoice === ROCK)
+    ? RESULT_PLAYER_WINS
+    : RESULT_COMPUTER_WINS;
+ /* if (comChoice === playChoice) {
     return RESULT_DRAW;
   } else if (
     comChoice === ROCK && playChoice === PAPER ||
@@ -45,9 +60,9 @@ const detWinner = function (comChoice, playChoice) {
   }else {
     return RESULT_COMPUTER_WINS;
   }
-};
+};*/
 
-startGameBtn.addEventListener("click", function () {
+startGameBtn.addEventListener("click", () => {
   if (gameIsRunning) {
     return;
   }
