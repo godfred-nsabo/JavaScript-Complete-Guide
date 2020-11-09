@@ -94,3 +94,26 @@ startGameBtn.addEventListener("click", () => {
   alert(imessages);
   gameIsRunning = false;
 });
+
+// not related to game
+
+const sumUp = (a, b, ...numbers) => {
+  const validateNumber = (number) =>{
+    return isNaN(number) ? 0: number;
+  };
+  let sum = 0;
+  for (const num of numbers) {
+    sum += num;
+  }
+  return sum;
+};
+const subractup = function(){ //(...numbers){
+  let sub = 0;
+  for (const num of arguments) { // don't use that
+    sub -= num;
+  }
+  return sub;
+}
+console.log(sumUp(1, 5, -3, 10, 6, 10));
+console.log(sumUp(1, 5, 10, -3, 6, 10, 25, 88));
+console.log(subractup(1, 5, 10, -3, 6, 10, 25,));
