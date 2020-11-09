@@ -72,7 +72,7 @@ function writeLog(operationIdentifier, prevResult, operationNumber, newResult) {
   };
   logEntries.push(logEntry);
   console.log(logEntry); // properties using the dot notation
-}
+}/*
 // Using if statements
 function calculateResult(calculationType) {
   const enteredNumber = getUserNumberInput();
@@ -185,7 +185,7 @@ function calculateResult(calculationType) {
     calculationType === "NATURAL LOG" ||
     calculationType === "PERCENT"
   ) {}*/
-}
+/*}
 
 function add() {
   calculateResult("ADD");
@@ -212,7 +212,7 @@ function add() {
   console.log(logEntries);
   //console.log(logEntries[0]); 
   writeLog('ADD', initialResult, enteredNumber, currentResult);*/
-}
+/*}
 
 function subtract() {
   calculateResult("SUBTRACT");
@@ -230,7 +230,7 @@ function subtract() {
   console.log(logEntry.operation); // properties using the dot notation
   console.log(logEntries);
   writeLog('SUBTRACT', initialResult, enteredNumber, currentResult);*/
-}
+/*}
 
 function multiply() {
   calculateResult("MULTIPLY");
@@ -248,7 +248,7 @@ function multiply() {
   console.log(logEntry.operation); // properties using the dot notation
   console.log(logEntries);
   writeLog('MULTIPLY', initialResult, enteredNumber, currentResult);*/
-}
+/*}
 
 function divide() {
   calculateResult("DIVIDE");
@@ -265,8 +265,7 @@ function divide() {
   logEntries.push(logEntry);
   console.log(logEntry.operation); // properties using the dot notation
   console.log(logEntries);
-  writeLog('DIVIDE', initialResult, enteredNumber, currentResult);*/
-}
+  writeLog('DIVIDE', initialResult, enteredNumber, currentResult);}*/
 
 function modulus() {
   calculateResult("MODULUS");
@@ -414,11 +413,32 @@ function percentage() {
   writeLog('PERCENT', initialResult, enteredNumber, currentResult);*/
 }
 
+function calculate(operation){
+  const enteredNumber = getUserNumberInput();
+  const initialResult = currentResult;
+  let operator;
+  if (operationt === 'ADD'){
+    currentResult += enteredNumber;
+    operator = '+'
+  } else if (operation === 'SUBTRACT'){
+    currentResult -= enteredNumber;
+    operator = '-'
+  } else if (operation === 'MULTIPLY'){
+      currentResult *= enteredNumber;
+      operator = '*' 
+  } else {
+      currentResult *= enteredNumber;
+      operator = '/'
+  }
+  createAndWriteOutput(operator, initialResult, enteredNumber);
+  writeLog(operation, initialResult, enteredNumber, currentResult);
+}
+
 // Adding document from vendor file
-addBtn.addEventListener("click", add);
-subtractBtn.addEventListener("click", subtract);
-multiplyBtn.addEventListener("click", multiply);
-divideBtn.addEventListener("click", divide);
+addBtn.addEventListener("click", calculate.bind(this, 'ADD'));
+subtractBtn.addEventListener("click", calculate.bind(this, 'SUBTRACT'));
+multiplyBtn.addEventListener("click", calculate.bind(this, 'MULTIPLY'));
+divideBtn.addEventListener("click", calculate.bind(this, 'DIVIDE'));
 modulusBtn.addEventListener("click", modulus);
 indexBtn.addEventListener("click", index);
 exponentialBtn.addEventListener("click", exponential);
