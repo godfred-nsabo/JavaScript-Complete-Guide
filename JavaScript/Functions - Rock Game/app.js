@@ -97,28 +97,69 @@ startGameBtn.addEventListener("click", () => {
 
 // not related to game
 
-const sumUp = (resultHandler, ...numbers) => {
-  const validateNumber = (number) =>{
-    return isNaN(number) ? 0: number;
+const combineOperation = (resultHandler, operation, ...numbers) => {
+  const validateNumber = (number) => {
+    return isNaN(number) ? 0 : number;
   };
   let sum = 0;
   for (const num of numbers) {
-    sum += validateNumber(num);
+    if (operation === "ADD") {
+      sum += validateNumber(num);
+    } else {
+      sum -= validateNumber(num);
+    }
   }
   resultHandler(sum);
 };
-const subractup = function(){ //(...numbers){
+
+/*const subractup = function(resultHandler, ...numbers){ //(...numbers){
   let sub = 0;
-  for (const num of arguments) { // don't use that
+  for (const num of numbers) { // don't use that
     sub -= num;
   }
   return sub;
-}
+}*/
 
-const showResult = (result) =>{
-  alert('The result after adding all numbers is: ' + result);
+const showResult = (messageText, result) => {
+  alert(messageText + " " + result);
 };
 
-sumUp(showResult, 1, 5, -3, 10, 6, 10);
-sumUp(showResult, 1, 5, 10, -3, 6, 10, 25, 88);
-console.log(subractup(1, 5, 10, -3, 6, 10, 25,));
+// Another Approach
+function showResult2(result) {
+  alert(`The result after operation is : ${result}`);
+}
+
+combineOperation(
+  showResult.bind(this, " The result after adding all numbers is "),
+  "ADD",
+  1,
+  5,
+  'string',
+  -3,
+  10,
+  6,
+  10
+); // .bind() will create a function as referecne
+combineOperation(
+  showResult.bind(this, " The result after adding all numbers is "),
+  "ADD",
+  1,
+  5,
+  10,
+  -3,
+  6,
+  10,
+  25,
+  88
+);
+combineOperation(
+  showResult.bind(this, " The result after subtracting all numbers is "),
+  1,
+  "SUBTRACT",
+  5,
+  10,
+  -3,
+  6,
+  10,
+  25
+);
