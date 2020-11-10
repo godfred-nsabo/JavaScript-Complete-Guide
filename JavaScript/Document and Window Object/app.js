@@ -26,6 +26,8 @@ const li = document.querySelector('li:last-of-type');
 li.textContent = li.textContent + ` (Changed!)`;
 
 const body = document.body;
+const head = document.head;
+
 
 
 //const listItemElements = document.querySelectorAll('li');
@@ -34,3 +36,6 @@ const listItemElements = document.getElementsByTagName('li');
 for (const list in listItemElements){
   console.dir(list);
 }
+const docuBody = document.body;
+const docuTitle2 = document.body.querySelector('h1');
+docuTitle2.textContent = "Assignment - Solved!";
