@@ -36,6 +36,18 @@ const listItemElements = document.getElementsByTagName('li');
 for (const list in listItemElements){
   console.dir(list);
 }
+/*
 const docuBody = document.body;
 const docuTitle2 = document.body.querySelector('h1');
-docuTitle2.textContent = "Assignment - Solved!";
+docuTitle2.textContent = "Assignment - Solved!";*/
+
+const ul = document.querySelector('ul');
+console.dir(ul.children);
+console.dir(ul.children[1]); // selects only select children elements nodes
+
+console.dir(ul.childNodes); // selects all child nodes and includes text nodes
+
+// use .firstChild or .firstElementChild and same as .lastChild or .lastElementChild
+
+console.dir(ul.firstChild);
+console.dir(ul.firstElementChild);
