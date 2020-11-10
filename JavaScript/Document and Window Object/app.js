@@ -51,3 +51,19 @@ console.dir(ul.childNodes); // selects all child nodes and includes text nodes
 
 console.dir(ul.firstChild);
 console.dir(ul.firstElementChild);
+
+const liFirst = document.querySelector(('l'));
+console.dir(liFirst.parentNode); // To the nearest parent Node
+console.dir(liFirst.parentElement); // To the nearest parent Element node
+
+document.documentElement.parentElement;
+
+document.documentElement.parentNode;
+
+// Ancestors
+
+liFirst.closest('body'); // nice method for selecting any ancestor element
+
+liFirst.closest('header'); // header not an ancestor
+
+
