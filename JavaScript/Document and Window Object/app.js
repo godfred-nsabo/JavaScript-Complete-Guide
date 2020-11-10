@@ -10,5 +10,14 @@ console.dir(h1.classList);
 console.dir(h1.style.color = 'white');
 console.dir(h1.style.backgroundColor = 'red');
 
+const input = document.querySelector('input');
+console.dir(input);
 
+const input2 = document.querySelector('input');
+console.dir(input2);
+
+console.dir(input2.value = 'Some new inputs from User');
+
+console.dir(input.setAttribute('value', 'some other default'));
+console.dir(input.value = input.getAttribute('value'));
 
