@@ -1,3 +1,4 @@
+/*
 console.dir(document.getElementById('main-title'));
 console.dir(document.getElementsByClassName('.list-item'));
 
@@ -41,7 +42,7 @@ const docuBody = document.body;
 const docuTitle2 = document.body.querySelector('h1');
 docuTitle2.textContent = "Assignment - Solved!";*/
 
-const ul = document.querySelector('ul');
+/*const ul = document.querySelector('ul');
 console.dir(ul.children);
 console.dir(ul.children[1]); // selects only select children elements nodes
 
@@ -66,4 +67,18 @@ liFirst.closest('body'); // nice method for selecting any ancestor element
 
 liFirst.closest('header'); // header not an ancestor
 
+
+const ul = li.parentElement;
+console.dir(ul);
+console.dir(ul.previousSibling);
+console.dir(ul.nextSibling);
+console.dir(ul.nextElementSibling);
+
+*/
+
+
+const ul = document.body.firstElementChild.nextElementSibling;
+const firstLi = ul.firstElementChild;
+
+console.log(firstLi);
 
