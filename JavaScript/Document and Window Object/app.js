@@ -21,3 +21,16 @@ console.dir(input2.value = 'Some new inputs from User');
 console.dir(input.setAttribute('value', 'some other default'));
 console.dir(input.value = input.getAttribute('value'));
 
+
+const li = document.querySelector('li:last-of-type');
+li.textContent = li.textContent + ` (Changed!)`;
+
+const body = document.body;
+
+
+//const listItemElements = document.querySelectorAll('li');
+const listItemElements = document.getElementsByTagName('li');
+
+for (const list in listItemElements){
+  console.dir(list);
+}
