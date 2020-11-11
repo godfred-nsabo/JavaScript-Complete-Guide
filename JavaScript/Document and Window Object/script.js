@@ -111,5 +111,32 @@ list.innerHTML = list.innerHTML + '<li>Item 5</li>';
 const div = document.querySelector('div');
 
 div.innerHTML = div.innerHTML + '<p>incorrect! Check details</p>';
-
 div.insertAdjacentHTML('beforeend', '<p>incorrect! Check details</p>');
+
+// Element Node and APpend in the end of the list
+
+const newList = document.createElement('li');
+console.dir(newList);
+
+list.appendChild(newList);
+newList.textContent = 'Item 6';
+
+list.prepend(newList);
+newList.textContent = 'Item 7';
+
+list.lastElementChild.before(newList);
+list.lastElementChild.after(newList);
+
+list.firstElementChild.replaceWith(newList);
+
+let aBlock = document.createElement('block').appendChild(document.createElement('b'));
+console.dir(aBlock);
+
+// Create a new paragraph element, and append it to the end of the document body
+let p = document.createElement("p");
+document.body.appendChild(p);
+
+const secondList = list.children[1];
+newList.textContent = 'Item 8';
+
+secondList.insertAdjacentElement('afterend', newList);
