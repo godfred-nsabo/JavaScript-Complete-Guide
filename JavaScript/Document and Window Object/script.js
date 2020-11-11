@@ -140,3 +140,24 @@ const secondList = list.children[1];
 newList.textContent = 'Item 8';
 
 secondList.insertAdjacentElement('afterend', newList);
+
+// Cloning Elements
+const newList2 = newList.cloneNode(true);
+list.append(newList, newList2);
+
+// Live Node vs Non-Live
+const lisItems = document.querySelectorAll('li');
+console.dir(lisItems);
+
+const lisItems2 = document.getElementsByTagName('li');
+console.dir(lisItems2);
+
+newList.textContent = 'Item 6';
+list.append(newList);
+
+lisItems[0].textContent = 'Item 01';
+
+// remove child
+// select the element first
+//list.parentElement.removeChild(list);
+list.parentElement.appendChild(list);
