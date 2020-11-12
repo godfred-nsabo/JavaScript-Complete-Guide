@@ -50,6 +50,7 @@ function accendentDeleteHandler(movieId) {
   const listRoot = document.getElementById("movie-list");
   listRoot.children[movieIndex].remove();
   //listRoot.removeChild(listRoot.children[movieIndex]);
+  cancelMovieDelete();
 }
 
 function cancelMovieDelete() {
@@ -60,6 +61,25 @@ function cancelMovieDelete() {
 function deleteMovieHandler(movieId) {
   deleteMovieModal.classList.add("visible");
   toggleBackdropHandler();
+  // add event listners
+  // local constants
+  const cancelDeleteButton = deleteMovieModal.querySelector(".btn--passive");
+  const acceptDeleteButton = deleteMovieModal.querySelector(".btn--danger");
+ 
+  acceptDeleteButton.removeEventListener(
+    "click",
+    deleteMovieHandler.bind(null, movieId)
+  );  
+  acceptDeleteButton.removeEventListener("click", cancelMovieDelete);
+
+  cancelDeleteButton.addEventListener("click", cancelMovieDelete);
+  acceptDeleteButton.addEventListener(
+    "click",
+    accendentDeleteHandler.bind(null, movieId)
+  );
+  //function () {
+  //closeMovieDeletionModal();});
+
   //accendentDeleteHandler(movieId);
 }
 
@@ -110,6 +130,7 @@ function clearUserInputs() {
 
 function removeMovieButtonHandler() {
   closeMovieModal();
+  toggleBackdropHandler();
   clearUserInputs();
 }
 
@@ -172,6 +193,7 @@ function addMovieButtonHandler() {
 function backdropClickHandler() {
   closeMovieModal();
   cancelMovieDelete();
+  clearUserInputs();
 }
 
 //EventListeners
