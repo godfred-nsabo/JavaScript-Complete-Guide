@@ -51,6 +51,7 @@ function accendentDeleteHandler(movieId) {
   listRoot.children[movieIndex].remove();
   //listRoot.removeChild(listRoot.children[movieIndex]);
   cancelMovieDelete();
+  updateUI();
 }
 
 function cancelMovieDelete() {
