@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Favorite Movies</title>
-    <link rel="stylesheet" href="assets/styles/app.css" />
+    <link rel="stylesheet" href="assets/styles/app.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="assets/scripts/app.js" defer></script>
+    <script src="assets/scripts/rating.js" defer></script>
+   <!-- <script src="assets/scripts/newMovies.json" defer></script>-->
   </head>
   <body>
     <div id="backdrop"></div>
@@ -42,10 +45,17 @@
         <button class="btn btn--danger">Yes</button>
       </div>
     </div>
-
+    
     <header>
       <h1>Favorite Movies</h1>
       <button>ADD MOVIE</button>
+      <button class="main-header">
+        <nav class="nav main-nav">
+        <ul>
+          <li><a href="rating.html">RATINGS</a></li>
+        </ul>
+      </nav>
+      </button>
     </header>
 
     <main>
@@ -54,5 +64,16 @@
       </section>
       <ul id="movie-list"></ul>
     </main>
+    <footer>
+      <div class="main">
+        <span class="heading">User Rating</span>
+        <span class="fa fa-star checked" id="one"></span>
+        <span class="fa fa-star checked" id="two"></span>
+        <span class="fa fa-star unchecked" id="three"></span>
+        <span class="fa fa-star unchecked" id="four"></span>
+        <span class="fa fa-star unchecked" id="five"><span>
+        </div>
+        <!--<button class="btn-rating">User Rating</button>-->
+      </footer>
   </body>
 </html>

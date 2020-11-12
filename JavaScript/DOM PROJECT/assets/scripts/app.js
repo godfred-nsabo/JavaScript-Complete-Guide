@@ -24,7 +24,36 @@ const addMovie = addMovieModal1.querySelector(".btn--success");
 const userInputs = addMovieModal1.querySelectorAll("input");
 //const userInputs = addMovieModal1.getElementsByTagName('input');
 
+const movies = [];
+
+
 //Functions
+
+
+function updateUI () {
+    if (movies.length === 0) {
+        entryTextSection.style.display = 'block';
+    } else {
+        entryTextSection.style.display = 'none';
+    }
+}
+
+function addNewMovies (title, imageUrl, rating) {
+    const newMovieElement = document.createElement('li');
+    newMovieElement.className = 'movie-element';
+    newMovieElement.innerHTML = `
+    <div class="movie-element__image">
+        <img src="${imageUrl}" alt = "${title}">
+    </div>
+    <div class="movie-element__info">
+        <h2>${title}</h2>
+        <p>${rating}/5 stars</p>
+    </div>
+    `;
+    const listRoot = document.getElementById('movie-list');
+    listRoot.append(newMovieElement);
+};
+
 function toggleMovieModel() {
   addMovieModal1.classList.toggle("visible");
   togglebackdropHandler();
@@ -34,8 +63,15 @@ function togglebackdropHandler() {
   addBackdrop.classList.toggle("visible");
 }
 
+function clearUserInputs () {
+    for (const usrIput of userInputs) {
+      usrIput.value = '';  
+    }
+}
+
 function removeMovieButtonHandler() {
   toggleMovieModel();
+  clearUserInputs(); 
 }
 
 function addMovieButtonHandler() {
@@ -52,10 +88,24 @@ function addMovieButtonHandler() {
     alert("Please enter valid Inputs");
   } else if (+ratingValue < 1 || +ratingValue > 5) {
     alert("Please enter valid inputs!");
+  } else {
+    clearUserInputs(); 
   }
+  //const newMovies = JSON.parse(newMovies); //Try this later
+  const newMovies = {
+    title: titleValue,
+    image: imageValue,
+    rating: ratingValue
 }
+movies.push(newMovies);
+console.log(movies);
+toggleMovieModel();
+clearUserInputs(); 
+addNewMovies(newMovies.title, newMovies.image, newMovies.rating);
+updateUI();
+};
 
-function addMovieButtonHandler() {
+/*function addMovieButtonHandler() {
   //toggleMovieModel();
   const titleValue = userInputs[0].value;
   const imageValue = userInputs[1].value;
@@ -63,19 +113,21 @@ function addMovieButtonHandler() {
 
   if (
     titleValue.trim() === "" ||
-   imageValue.trim() === "" ||
+    imageValue.trim() === "" ||
     ratingValue.trim() === "" ||
-    +ratingValue < 1 || 
+    +ratingValue < 1 ||
     +ratingValue > 5
-){
+  ) {
     alert("Please enter valid inputs!");
     return;
-}
+  }
+}*/
 
 
 function backdropClickHandler() {
   toggleMovieModel();
 }
+
 
 //EventListeners
 startMovieButton.addEventListener("click", toggleMovieModel);
