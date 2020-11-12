@@ -64,9 +64,10 @@ function deleteMovieHandler(movieId) {
   // add event listners
   // local constants
   const cancelDeleteButton = deleteMovieModal.querySelector(".btn--passive");
-  const acceptDeleteButton = deleteMovieModal.querySelector(".btn--danger");
+  let acceptDeleteButton = deleteMovieModal.querySelector(".btn--danger");
 
   acceptDeleteButton.replaceWith(acceptDeleteButton.cloneNode(true));
+  acceptDeleteButton = deleteMovieModal.querySelector(".btn--danger");
 
   //acceptDeleteButton.removeEventListener(
   // "click",
