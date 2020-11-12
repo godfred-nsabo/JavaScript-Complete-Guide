@@ -1,5 +1,5 @@
 
-const entryTextSection = document.getElementById('entry-text');
+
 //const element = document.getElementsByClassName('main');
 
 
